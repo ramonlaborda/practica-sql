@@ -8,9 +8,9 @@ WITH tmp_table AS (
 )
 SELECT  tmp_table.ivr_id AS calls_ivr_id
       , CASE WHEN tmp_table.prev_call_time IS NOT NULL AND TIMESTAMP_DIFF(tmp_table.start_date, tmp_table.prev_call_time, HOUR) <= 24 THEN 1 ELSE 0
-        END flag_llamada_ultimas_24_horas
+        END repeated_phone_24H
       , CASE WHEN next_call_time IS NOT NULL AND TIMESTAMP_DIFF(tmp_table.next_call_time, tmp_table.start_date, HOUR) <= 24 THEN 1 ELSE 0
-        END flag_llamada_siguientes_24_horas
+        END cause_recall_phone_24H
 FROM tmp_table;
 
 /*Primero creamos tabla temporal que utiliza el registro y el numero de telefono ademas de la fecha de entrada de llamada
