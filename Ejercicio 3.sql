@@ -20,6 +20,10 @@ SELECT ivr_calls.ivr_id                                  AS calls_ivr_id
      , ivr_steps.step_name                               AS step_name
      , ivr_steps.step_result                             AS step_result
      , ivr_steps.step_description_error                  AS step_description_error
+     , ivr_steps.document_type                           AS step_document_type          
+     , ivr_steps.document_identification                 AS step_document_identification
+     , ivr_steps.customer_phone                          AS step_customer_phone         
+     , ivr_steps.billing_account_id                      AS step_billing_account_id     
      
 FROM `keepcoding.ivr_calls` ivr_calls
 
